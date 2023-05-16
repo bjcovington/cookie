@@ -1,3 +1,7 @@
+CREATE SCHEMA `cookiedb`
+
+
+
 CREATE TABLE `Cookie` (
   `CookieID` INT,
   `name` VARCHAR(40),
