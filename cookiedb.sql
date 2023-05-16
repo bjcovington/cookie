@@ -2,7 +2,7 @@ CREATE TABLE `Cookie` (
   `CookieID` INT,
   `name` VARCHAR(40),
   `ingredient` VARCHAR(40),
-  `creatine` BOOLEAN,
+  `creatine` VARCHAR(40),
   `size` INT,
   `Frosting` VARCHAR(40),
   `FrostingStyle` VARCHAR(40),
@@ -17,7 +17,7 @@ CREATE TABLE `Locations` (
   `City` VARCHAR(40),
   `State` VARCHAR(40),
   `Zip` INT,
-  `LocationPhone` INT,
+  `LocationPhone` BIGINT,
   PRIMARY KEY (`LocationID`)
 );
 
@@ -47,13 +47,25 @@ CREATE TABLE `CookieOrder` (
 );
 
 INSERT INTO Cookie (CookieID, name, ingredient, creatine, size, Frosting, FrostingStyle)
-VALUES ();
+VALUES (1, 'ChocolateSwoll', 'Chocolate', 'yes', 2, 'chocolate', 'A Dude with a Barbell'),
+       (2, 'OnTheCut', 'Whole Wheat', 'no', 1, NULL, NULL),
+       (3, 'DirtyBulk', 'Chocolate and Vanilla', 'yes', 5, 'All', 'Picture of Eddie Hall'),
+       (4, 'Powerlifter', 'Vanilla', 'no', 3, 'vanilla', 'Powerlifter'),
+       (5, 'HeavyCircles', 'Chocolate', 'yes', 17.75, 'blue', 'Standard Barbell');
 
-INSERT INTO Locations (LocationID, LocationName, Street1, Street2, City, State, Zip, LocationPhone)\
-VALUES ();
+INSERT INTO Locations (LocationID, LocationName, Street1, Street2, City, State, Zip, LocationPhone)
+VALUES (1, 'Planet Fitness', '8010 S 84th St', NULL, 'LaVista', 'NE', 68128, 4026148215),
+       (2, 'Build-A-Bear', '60 E Broadway', NULL, 'Bloomington', 'MN', 55425, 9528838800),
+       (3, 'BuildBigCookies', '832 6th St', NULL, 'Charleston', 'WV', 25302, 3042056076),
+       (4, 'Crumble', '214 Sigurdson Ave', NULL, 'Blaine', 'WA', 98230, 1112223456),
+       (5, 'Milking Cookies', '43 Milk St', NULL, 'Nantucket', 'MA', 02554, 5082288816);
 
 INSERT INTO Orders (OrderID, OrderDatetime, OrderStatus, LocationID)
-VALUES ();
+VALUES (1, '2053-05-08 06:35:26', 'crushed', 5),
+       (2, '1992-12-09 05:25:29', 'lost', 1),
+       (3, '2001-08-03 11:38:29', 'delivered', 4),
+       (4, '2023-10-05 10:54:01', 'in progress', 1),
+       (5, '2016-06-02 07:59:36', 'in progress', 3);
 
 select * from Orders;
 select * from Cookie;
