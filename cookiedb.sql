@@ -47,16 +47,13 @@ CREATE TABLE `CookieOrder` (
 );
 
 INSERT INTO Cookie (CookieID, name, ingredient, creatine, size, Frosting, FrostingStyle)
-VALUES
-();
+VALUES ();
 
 INSERT INTO Locations (LocationID, LocationName, Street1, Street2, City, State, Zip, LocationPhone)\
-VALUES
-();
+VALUES ();
 
 INSERT INTO Orders (OrderID, OrderDatetime, OrderStatus, LocationID)
-VALUES
-();
+VALUES ();
 
 select * from Orders;
 select * from Cookie;
