@@ -1,6 +1,4 @@
-CREATE SCHEMA `cookiedb`
-
-
+CREATE DATABASE IF NOT EXISTS cookiedb;
 
 CREATE TABLE `Cookie` (
   `CookieID` INT,
@@ -70,6 +68,40 @@ VALUES (1, '2053-05-08 06:35:26', 'crushed', 5),
        (3, '2001-08-03 11:38:29', 'delivered', 4),
        (4, '2023-10-05 10:54:01', 'in progress', 1),
        (5, '2016-06-02 07:59:36', 'in progress', 3);
+
+INSERT INTO CookieLocation (CookieID, LocationID, CoLoID)
+VALUES (1, 1, 1),
+       (1, 2, 2),
+       (1, 3, 3),
+       (1, 4, 4),
+       (1, 5, 5),
+       (2, 1, 6),
+       (2, 2, 7),
+       (2, 3, 8),
+       (2, 4, 9),
+       (2, 5, 10),
+       (3, 1, 11),
+       (3, 2, 12),
+       (3, 3, 13),
+       (3, 4, 14),
+       (3, 5, 15),
+       (4, 1, 16),
+       (4, 2, 17),
+       (4, 3, 18),
+       (4, 4, 19),
+       (4, 5, 20),
+       (5, 1, 21),
+       (5, 2, 22),
+       (5, 3, 23),
+       (5, 4, 24),
+       (5, 5, 25);
+
+INSERT INTO CookieOrder (CookieID, OrderID, CoOrID)
+VALUES (3, 1, 1),
+       (1, 5, 2),
+       (3, 4, 3),
+       (2, 3, 4),
+       (4, 2, 5);
 
 select * from Orders;
 select * from Cookie;
