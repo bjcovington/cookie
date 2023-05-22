@@ -103,6 +103,6 @@ VALUES (3, 1, 1),
        (2, 3, 4),
        (4, 2, 5);
 
-select * from Orders;
-select * from Cookie;
-select * from Locations;
+GRANT SELECT
+ON cookiedb.*
+TO cookie@localhost IDENTIFIED BY 'good';
