@@ -1,5 +1,7 @@
 CREATE DATABASE IF NOT EXISTS cookiedb;
 
+USE cookiedb;
+
 CREATE TABLE `Cookie` (
   `CookieID` INT,
   `name` VARCHAR(40),
@@ -103,6 +105,6 @@ VALUES (3, 1, 1),
        (2, 3, 4),
        (4, 2, 5);
 
-GRANT SELECT
+GRANT SELECT, UPDATE, INSERT, DELETE
 ON cookiedb.*
 TO cookie@localhost IDENTIFIED BY 'good';

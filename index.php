@@ -22,13 +22,13 @@ $Locations = $statement->fetchAll();
 $statement->closeCursor();
 
 $queryCookie = 'SELECT * FROM CookieLocation
-                  JOIN cookie ON CookieLocation.CookieID = cookie.CookieID
+                  JOIN Cookie ON CookieLocation.CookieID = Cookie.CookieID
                   WHERE LocationID = :LocationID
                   ORDER BY CookieID';
 $statement3 = $db->prepare($queryCookie);
 $statement3->bindValue(':LocationID', $LocationID);
 $statement3->execute();
-$cookie = $statement3->fetchAll();
+$Cookie = $statement3->fetchAll();
 $statement3->closeCursor();
 ?>
 
@@ -75,26 +75,26 @@ $statement3->closeCursor();
                 <th>&nbsp;</th>
             </tr>
 
-            <?php foreach ($cookie as $cookies) : ?>
+            <?php foreach ($Cookie as $Cookies) : ?>
             <tr>
-                <td><?php echo $cookies['name']; ?></td>
-                <td><?php echo $cookies['ingredient']; ?></td>
-                <td><?php echo $cookies['creatine']; ?></td>
-                <td><?php echo $cookies['size']; ?></td>
-                <td><?php echo $cookies['Frosting']; ?></td>
-                <td><?php echo $cookies['FrostingStyle']; ?></td>
+                <td><?php echo $Cookies['name']; ?></td>
+                <td><?php echo $Cookies['ingredient']; ?></td>
+                <td><?php echo $Cookies['creatine']; ?></td>
+                <td><?php echo $Cookies['size']; ?></td>
+                <td><?php echo $Cookies['Frosting']; ?></td>
+                <td><?php echo $Cookies['FrostingStyle']; ?></td>
                 <td><form action="delete_cookie.php" method="post">
-                    <input type="hidden" name="cookieID"
-                           value="<?php echo $cookie['cookieID']; ?>">
+                    <input type="hidden" name="CookieID"
+                           value="<?php echo $Cookie['CookieID']; ?>">
                     <input type="hidden" name="LocationID"
-                           value="<?php echo $cookie['LocationID']; ?>">
+                           value="<?php echo $Cookie['LocationID']; ?>">
                     <input type="submit" value="Delete">
                 </form></td>
                 <td><form action="edit_cookie_form.php" method="post">
-                    <input type="hidden" name="cookieID"
-                           value="<?php echo $cookie['cookieID']; ?>">
+                    <input type="hidden" name="CookieID"
+                           value="<?php echo $Cookie['CookieID']; ?>">
                     <input type="hidden" name="LoactionID"
-                           value="<?php echo $cookie['LocationID']; ?>">
+                           value="<?php echo $Cookie['LocationID']; ?>">
                     <input type="submit" value="Edit">
                 </form></td>
             </tr>
