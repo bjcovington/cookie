@@ -6,10 +6,12 @@ $LocationID = filter_input(INPUT_POST, 'LocationID', FILTER_VALIDATE_INT);
 $name = filter_input(INPUT_POST, 'name');
 $creatine = filter_input(INPUT_POST, 'creatine');
 $size = filter_input(INPUT_POST, 'size', FILTER_VALIDATE_FLOAT);
+$Frosting = filter_input(INPUT_POST, 'Frosting');
+$FrostingStyle = filter_input(INPUT_POST, 'FrostingStyle');
 
 if($LocationID == null || $LocationID == false ||
 $CookieID == null || $CookieID == false ||
-$name == null || $name == null || $price == null || $price == false) {
+$name == null || $creatine == null || $size == null || $Frosting == null || $FrostingStyle == null) {
     $error = "Invalid product data. Check all fields and try again.";
     include('error.php');
 } else {
@@ -20,7 +22,9 @@ $name == null || $name == null || $price == null || $price == false) {
                 SET LocationID = :LocationID, 
                     name = :name,
                     creatine = :creatine, 
-                    size = :size
+                    size = :size,
+                    Frosting = :Frosting,
+                    FrostingStyle = :FrostingStyle
                 WHERE productID = :CookieID';
     $statement = $db->prepare($query);
     $statement->bindValue(':CookieID', $CookieID);
@@ -28,6 +32,8 @@ $name == null || $name == null || $price == null || $price == false) {
     $statement->bindValue(':name', $name);
     $statement->bindValue(':creatine', $creatine);
     $statement->bindValue(':size', $size);
+    $statement->bindValue(':Frosting', $Frosting);
+    $statement->bindValue(':FrostingStyle', $FrostingStyle);
     $statement->execute();
     $statement->closeCursor();
 
